@@ -7,13 +7,13 @@ const fs = require('fs');
 
 const employees = [];
 const employeeType = [
-    [{
+    {
         type: "list",
         Message: "Please select the type of employee that you are adding to your team",
         choices: ["Manager", "Engineer", "Intern"],
         name: "position",
     },
-    ]
+    
 ];
 
 const managerQuestions = [
