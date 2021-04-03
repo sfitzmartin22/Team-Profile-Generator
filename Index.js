@@ -1,12 +1,21 @@
-const fs = require('fs');
 const inquirer = require("inquirer");
 const Manager = require("./src/Manager");
 const Engineer = require("./src/Engineer");
 const Intern = require("./src/Intern");
 const generate = require("./src/generatedHtml");
-
+const fs = require('fs');
 
 const employees = [];
+const employeeType = [
+    [{
+        type: "list",
+        Message: "Please select the type of employee that you are adding to your team",
+        choices: ["Manager", "Engineer", "Intern"],
+        name: "position",
+    },
+    ]
+];
+
 const managerQuestions = [
     {
         type: "input",
@@ -85,20 +94,21 @@ const internQuestions = [
     },
 ];
 
-
+function employeeInfo() {
 inquirer
-    .prompt([{
-        type: "list",
-        Message: "Please select the type of employee that you are adding to your team",
-        choices: ["Manager", "Engineer", "Intern"],
-        name: "position",
-    },
-    ])
-    .then(answers => {
-
-    })
-    .catch(error => {
-        if (error.isTtyError){
-            console.log("There is an error");
+    .prompt(employeeType)
+    .then((answers) => {
+    if (answers.position === "Manager") {
+        inquirer.prompt(managerQuestions)
+        .then((managerResponses) => {
+            const manager = new Manager(managerResponses.name, managerResponses.ID, managerResponses.email, managerResponses.officeNumber)
+            employees.push(manager)
+            console.log(manager);
+            
         }
-    })
+    )}
+    }
+)};
+
+
+employeeInfo ();
