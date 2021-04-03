@@ -1,10 +1,19 @@
 const Employee = require("./Employee.js");
 
-function Engineer(name, ID, email, gitHub) {
+class Engineer extends Employee {
+    constructor(name, ID, email, gitHub) {
     this.name = name;
     this.ID = ID;
     this.email = email;
-    this.gitHub = gitHub;
+}
+
+getgithub() {
+    return this.gitHub;
+}
+
+getPosition() {
+    return "Engineer";
+}
 }
 
 module.exports = Engineer
