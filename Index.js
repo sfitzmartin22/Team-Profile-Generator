@@ -103,7 +103,7 @@ inquirer
         .then((managerResponses) => {
             const manager = new Manager(managerResponses.name, managerResponses.ID, managerResponses.email, managerResponses.officeNumber)
             employees.push(manager);
-            console.log(manager);
+            console.log(employees);
             employeeInfo ();
         }
     )
@@ -112,7 +112,7 @@ inquirer
         .then((engineerResponses) => {
             const engineer = new Engineer(engineerResponses.name, engineerResponses.ID, engineerResponses.email, engineerResponses.gitHub)
             employees.push(engineer);
-            console.log(engineer);
+            console.log(employees);
             employeeInfo ();
     })
 } else if (answers.position === "Intern") {
@@ -120,7 +120,7 @@ inquirer
     .then((internResponses) => {
         const intern = new Intern(internResponses.name, internResponses.ID, internResponses.email, internResponses.school)
         employees.push(intern);
-        console.log(intern);
+        console.log(employees);
         employeeInfo ();
 })
 } else if (answers.position === "I have added all of the employees") {
