@@ -1,4 +1,4 @@
-const Employee = require("./Employee.js");
+const Employee = require("./Employee");
 
 class Intern extends Employee {
     constructor(name, ID, email, school) {
@@ -16,4 +16,4 @@ getPosition() {
 }
 }
 
-module.exports = Intern
+module.exports = Intern;
