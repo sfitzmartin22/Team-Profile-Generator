@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const Intern = require('./Intern');
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="en">
