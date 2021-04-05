@@ -25,7 +25,7 @@ const htmlContent = `
 managerContent = (managerResponses) => { return `<div  class="card">
 <div class="card-body">
     <h1 class="card-title">${managerResponses.name}</h1>
-    <h2 class="card-subtitle" mb-2 text-muted> {{ position }}</h2>
+    <h2 class="card-subtitle" mb-2 text-muted>"Manager"</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">"ID: ${managerResponses.ID}"</li>
             <li class="list-group-item">"Email: ${managerResponses.email}"</li>
@@ -38,7 +38,7 @@ managerContent = (managerResponses) => { return `<div  class="card">
 engineerContent = (engineerResponses) => { return `'<div  class="card">
 <div class="card-body">
     <h1 class="card-title"> ${engineerResponses.name}</h1>
-    <h2 class="card-subtitle" mb-2 text-muted> {{ position }}</h2>
+    <h2 class="card-subtitle" mb-2 text-muted>"Engineer"</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">"ID: ${engineerResponses.ID}"</li>
             <li class="list-group-item">"Email: ${engineerResponses.email}"</li>
@@ -51,7 +51,7 @@ engineerContent = (engineerResponses) => { return `'<div  class="card">
 internContent = (internResponses) => { return `'<div  class="card">
 <div class="card-body">
     <h1 class="card-title"> ${internResponses.name}</h1>
-    <h2 class="card-subtitle" mb-2 text-muted> {{ position }}</h2>
+    <h2 class="card-subtitle" mb-2 text-muted>"Intern"</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">"ID: ${internResponses.ID}"</li>
             <li class="list-group-item">"Email: ${internResponses.email}"</li>
@@ -61,9 +61,13 @@ internContent = (internResponses) => { return `'<div  class="card">
 </div>`
 }
 
+endContent = `</body>
+</html>`;
+
 module.exports = {
     htmlContent,
     managerContent,
     engineerContent,
     internContent,
+    endContent
 };

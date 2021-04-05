@@ -123,7 +123,7 @@ inquirer
             const engineer = new Engineer(engineerResponses.name, engineerResponses.ID, engineerResponses.email, engineerResponses.gitHub)
             employees.push(engineer);
             engineerContent2 = engineerContent (engineerResponses);
-            fs.appendFile("index2.html", engineerContent, (error) => 
+            fs.appendFile("index2.html", engineerContent2, (error) => 
             error ? console.log("error") : console.log("Engineer has been appended!"))
             employeeInfo ();
     })
@@ -133,11 +133,13 @@ inquirer
         const intern = new Intern(internResponses.name, internResponses.ID, internResponses.email, internResponses.school)
         employees.push(intern);
         internContent2 = internContent (internResponses);
-        fs.appendFile("index2.html", internContent, (error) => 
+        fs.appendFile("index2.html", internContent2, (error) => 
         error ? console.log("error") : console.log("Intern has been appended!"))
         employeeInfo ();
 })
 } else if (answers.position === "I have added all of the employees") {
+    fs.appendFile("index2.html", endContent, (error) => 
+    error ? console.log("error") : console.log("Intern has been appended!"))
     return;    
 }
   }
