@@ -3,7 +3,6 @@ class Employee {
         this.name = name;
         this.ID = ID;
         this.email = email;
-        this.position = position;
 
 }
 }

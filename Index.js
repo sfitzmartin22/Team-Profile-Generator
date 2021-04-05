@@ -1,8 +1,9 @@
 const inquirer = require("inquirer");
 const Manager = require("./src/Manager");
 const Engineer = require("./src/Engineer");
+const Employee = require("./src/Employee");
 const Intern = require("./src/Intern");
-const generate = require("./src/generateHtml");
+const {htmlContent} = require("./src/generateHtml");
 const fs = require('fs');
 
 const employees = [];
@@ -94,6 +95,13 @@ const internQuestions = [
     },
 ];
 
+function generateHtmlPage () {
+fs.writeFile('./Index2.html', htmlContent, (error) => 
+error ? console.log("error") : console.log("HTML page has been created!") );
+}
+
+generateHtmlPage();
+
 function employeeInfo() {
 inquirer
     .prompt(employeeType)
@@ -113,6 +121,7 @@ inquirer
             const engineer = new Engineer(engineerResponses.name, engineerResponses.ID, engineerResponses.email, engineerResponses.gitHub)
             employees.push(engineer);
             console.log(employees);
+            console.log(engineer);
             employeeInfo ();
     })
 } else if (answers.position === "Intern") {
@@ -121,6 +130,7 @@ inquirer
         const intern = new Intern(internResponses.name, internResponses.ID, internResponses.email, internResponses.school)
         employees.push(intern);
         console.log(employees);
+        console.log(intern);
         employeeInfo ();
 })
 } else if (answers.position === "I have added all of the employees") {
