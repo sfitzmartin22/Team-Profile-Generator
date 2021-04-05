@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const Intern = require('./Intern');
 
 const htmlContent = `
 <!DOCTYPE html>
@@ -18,10 +19,51 @@ const htmlContent = `
         </div>
     </div>
 </div>
-<body>`;
+<body>
+`;
 
+managerContent = (managerResponses) => { return `<div  class="card">
+<div class="card-body">
+    <h1 class="card-title">${managerResponses.name}</h1>
+    <h2 class="card-subtitle" mb-2 text-muted> {{ position }}</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">"ID: ${managerResponses.ID}"</li>
+            <li class="list-group-item">"Email: ${managerResponses.email}"</li>
+            <li class="list-group-item">"Office Number: ${managerResponses.officeNumber}"</li>
+        </ul>
+</div>
+</div>`
+}
 
+engineerContent = (engineerResponses) => { return `'<div  class="card">
+<div class="card-body">
+    <h1 class="card-title"> ${engineerResponses.name}</h1>
+    <h2 class="card-subtitle" mb-2 text-muted> {{ position }}</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">"ID: ${engineerResponses.ID}"</li>
+            <li class="list-group-item">"Email: ${engineerResponses.email}"</li>
+            <li class="list-group-item">"GitHub: ${engineerResponses.gitHub}"</li>
+        </ul>
+</div>
+</div>`
+}
+
+internContent = (internResponses) => { return `'<div  class="card">
+<div class="card-body">
+    <h1 class="card-title"> ${internResponses.name}</h1>
+    <h2 class="card-subtitle" mb-2 text-muted> {{ position }}</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">"ID: ${internResponses.ID}"</li>
+            <li class="list-group-item">"Email: ${internResponses.email}"</li>
+            <li class="list-group-item">"School: ${internResponses.school}"</li>
+        </ul>
+</div>
+</div>`
+}
 
 module.exports = {
     htmlContent,
+    managerContent,
+    engineerContent,
+    internContent,
 };

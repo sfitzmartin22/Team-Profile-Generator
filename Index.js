@@ -3,7 +3,7 @@ const Manager = require("./src/Manager");
 const Engineer = require("./src/Engineer");
 const Employee = require("./src/Employee");
 const Intern = require("./src/Intern");
-const {htmlContent} = require("./src/generateHtml");
+const {htmlContent, managerContent} = require("./src/generateHtml");
 const fs = require('fs');
 
 const employees = [];
@@ -111,7 +111,9 @@ inquirer
         .then((managerResponses) => {
             const manager = new Manager(managerResponses.name, managerResponses.ID, managerResponses.email, managerResponses.officeNumber)
             employees.push(manager);
-            console.log(employees);
+            managerContent2 = managerContent (managerResponses);
+            fs.appendFile("index2.html", managerContent2, (error) => 
+            error ? console.log("error") : console.log("Manager has been appended!"))
             employeeInfo ();
         }
     )
@@ -120,8 +122,9 @@ inquirer
         .then((engineerResponses) => {
             const engineer = new Engineer(engineerResponses.name, engineerResponses.ID, engineerResponses.email, engineerResponses.gitHub)
             employees.push(engineer);
-            console.log(employees);
-            console.log(engineer);
+            engineerContent2 = engineerContent (engineerResponses);
+            fs.appendFile("index2.html", engineerContent, (error) => 
+            error ? console.log("error") : console.log("Engineer has been appended!"))
             employeeInfo ();
     })
 } else if (answers.position === "Intern") {
@@ -129,8 +132,9 @@ inquirer
     .then((internResponses) => {
         const intern = new Intern(internResponses.name, internResponses.ID, internResponses.email, internResponses.school)
         employees.push(intern);
-        console.log(employees);
-        console.log(intern);
+        internContent2 = internContent (internResponses);
+        fs.appendFile("index2.html", internContent, (error) => 
+        error ? console.log("error") : console.log("Intern has been appended!"))
         employeeInfo ();
 })
 } else if (answers.position === "I have added all of the employees") {
