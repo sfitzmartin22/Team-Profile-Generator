@@ -3,7 +3,7 @@ const Manager = require("./src/Manager");
 const Engineer = require("./src/Engineer");
 const Employee = require("./src/Employee");
 const Intern = require("./src/Intern");
-const {htmlContent, managerContent} = require("./src/generateHtml");
+const {htmlContent} = require("./src/generateHtml");
 const fs = require('fs');
 
 const employees = [];
@@ -96,7 +96,7 @@ const internQuestions = [
 ];
 
 function generateHtmlPage () {
-fs.writeFile('./Index2.html', htmlContent, (error) => 
+fs.writeFile('./Index.html', htmlContent, (error) => 
 error ? console.log("error") : console.log("HTML page has been created!") );
 }
 
@@ -112,7 +112,7 @@ inquirer
             const manager = new Manager(managerResponses.name, managerResponses.ID, managerResponses.email, managerResponses.officeNumber)
             employees.push(manager);
             managerContent2 = managerContent (managerResponses);
-            fs.appendFile("index2.html", managerContent2, (error) => 
+            fs.appendFile("index.html", managerContent2, (error) => 
             error ? console.log("error") : console.log("Manager has been appended!"))
             employeeInfo ();
         }
@@ -123,7 +123,7 @@ inquirer
             const engineer = new Engineer(engineerResponses.name, engineerResponses.ID, engineerResponses.email, engineerResponses.gitHub)
             employees.push(engineer);
             engineerContent2 = engineerContent (engineerResponses);
-            fs.appendFile("index2.html", engineerContent2, (error) => 
+            fs.appendFile("index.html", engineerContent2, (error) => 
             error ? console.log("error") : console.log("Engineer has been appended!"))
             employeeInfo ();
     })
@@ -133,12 +133,12 @@ inquirer
         const intern = new Intern(internResponses.name, internResponses.ID, internResponses.email, internResponses.school)
         employees.push(intern);
         internContent2 = internContent (internResponses);
-        fs.appendFile("index2.html", internContent2, (error) => 
+        fs.appendFile("index.html", internContent2, (error) => 
         error ? console.log("error") : console.log("Intern has been appended!"))
         employeeInfo ();
 })
 } else if (answers.position === "I have added all of the employees") {
-    fs.appendFile("index2.html", endContent, (error) => 
+    fs.appendFile("index.html", endContent, (error) => 
     error ? console.log("error") : console.log("Intern has been appended!"))
     return;    
 }
