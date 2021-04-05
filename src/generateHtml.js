@@ -2,8 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const Intern = require('./Intern');
 
-const htmlContent = `
-<!DOCTYPE html>
+const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,40 +21,40 @@ const htmlContent = `
 <body>
 `;
 
-managerContent = (managerResponses) => { return `<div  class="card">
-<div class="card-body">
+managerContent = (managerResponses) => { return `<div class="card" style="width: 18rem;">
+<div class="card-header">
     <h1 class="card-title">${managerResponses.name}</h1>
-    <h2 class="card-subtitle" mb-2 text-muted>"Manager"</h2>
+    <h2 class="card-subtitle mb-2 text-muted">Manager</h2>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">"ID: ${managerResponses.ID}"</li>
-            <li class="list-group-item">"Email: ${managerResponses.email}"</li>
-            <li class="list-group-item">"Office Number: ${managerResponses.officeNumber}"</li>
+            <li class="list-group-item">ID: ${managerResponses.ID}</li>
+            <li class="list-group-item">Email: <a href="mailto:${managerResponses.email}">${managerResponses.email}</a></li>
+            <li class="list-group-item">Office Number: ${managerResponses.officeNumber}</li>
         </ul>
 </div>
 </div>`
 }
 
-engineerContent = (engineerResponses) => { return `'<div  class="card">
-<div class="card-body">
+engineerContent = (engineerResponses) => { return `<div class="card" style="width: 18rem;">
+<div class="card-header">
     <h1 class="card-title"> ${engineerResponses.name}</h1>
-    <h2 class="card-subtitle" mb-2 text-muted>"Engineer"</h2>
+    <h2 class="card-subtitle mb-2 text-muted">Engineer</h2>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">"ID: ${engineerResponses.ID}"</li>
-            <li class="list-group-item">"Email: ${engineerResponses.email}"</li>
-            <li class="list-group-item">"GitHub: ${engineerResponses.gitHub}"</li>
+            <li class="list-group-item">ID: ${engineerResponses.ID}</li>
+            <li class="list-group-item">Email: <a href="mailto:${engineerResponses.email}">${engineerResponses.email}</a></li>
+            <li class="list-group-item">GitHub: <a target="_blank" href="https://github.com/${engineerResponses.gitHub}">${engineerResponses.gitHub}</a></li>
         </ul>
 </div>
 </div>`
 }
 
-internContent = (internResponses) => { return `'<div  class="card">
-<div class="card-body">
-    <h1 class="card-title"> ${internResponses.name}</h1>
-    <h2 class="card-subtitle" mb-2 text-muted>"Intern"</h2>
+internContent = (internResponses) => { return `<div class="card" style="width: 18rem;">
+<div class="card-header">
+    <h1 class="card-title">${internResponses.name}</h1>
+    <h2 class="card-subtitle mb-2 text-muted">Intern</h2>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">"ID: ${internResponses.ID}"</li>
-            <li class="list-group-item">"Email: ${internResponses.email}"</li>
-            <li class="list-group-item">"School: ${internResponses.school}"</li>
+            <li class="list-group-item">ID: ${internResponses.ID}</li>
+            <li class="list-group-item">Email: <a href="mailto:${internResponses.email}">${internResponses.email}</a></li>
+            <li class="list-group-item">School: ${internResponses.school}</li>
         </ul>
 </div>
 </div>`
