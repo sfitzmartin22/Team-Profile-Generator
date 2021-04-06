@@ -5,7 +5,7 @@
   ## Description
   This applications prompts a series of questions that, once answered, automatically generates a team profile HTML page with contact info for all your employees.
 
-  [Link to project video]()
+  [Link to project video](https://drive.google.com/file/d/1RWqJrVaGZ8SgoIaWU1Hml7Wl-gui9537/view)
  
   ## Table of Contents
   - [Description](#description)
